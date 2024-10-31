@@ -1,7 +1,7 @@
 import React from 'react'
 import call from '../assets/images/call.svg'
 import sms from '../assets/images/sms.svg'
-import DropDown from './DropDown'
+import DropDowns from './DropDowns'
 
 const FAQ = () => {
   return (
@@ -22,11 +22,7 @@ const FAQ = () => {
           <a href="#" className="contact-sms">Contact us -{'>'}</a>
         </div>
       </div>
-      <div className="drop-downs">
-        <DropDown 
-          title="Is any of my personal information stored in the App?" 
-          content="No, the app does not store any personal information. All data is encrypted and stored securely on our servers. You have full control over your data at all times."/>
-      </div>
+      <DropDowns />
       <button className="btn-primary btn-contact">Contact us now</button>
     </section>
   )

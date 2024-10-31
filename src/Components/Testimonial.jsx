@@ -2,6 +2,19 @@ import React from 'react'
 import quotes from '../assets/images/quotes.svg'
 
 const Testimonial = ({author, jobRole, starRating, avatarUrl, comment}) => {
+
+  const Stars = (starRating) => {
+    let yellow = ''
+    let white = ''
+    for (let i = 0; i < 5; i++) {
+      if (starRating-- > 0) yellow += '\u2605'
+      else white += '\u2606';
+    }
+    return (
+      <> <span className="yellow">{yellow}</span><span className="white">{white}</span> </>
+    )
+  }
+  
   return (
     <div className="testimonial shadow">
       <div className="test-icon"><img src={quotes} alt="" /></div>
@@ -15,18 +28,6 @@ const Testimonial = ({author, jobRole, starRating, avatarUrl, comment}) => {
         </div>
       </div>
     </div>
-  )
-}
-
-const Stars = (starRating) => {
-  let yellow = ''
-  let white = ''
-  for (let i = 0; i < 5; i++) {
-    if (starRating-- > 0) yellow += '\u2605'
-    else white += '\u2606';
-  }
-  return (
-    <> <span className="yellow">{yellow}</span><span className="white">{white}</span> </>
   )
 }
 

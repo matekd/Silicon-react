@@ -9,7 +9,7 @@ import Subscribe from './Subscribe'
 
 const Main = () => {
   return (
-    <>
+    <main>
       <Brands />
       <Features />
       <div className="bg-gray">
@@ -21,7 +21,7 @@ const Main = () => {
       </div>
       <FAQ />
       <Subscribe />
-    </>
+    </main>
   )
 }
 

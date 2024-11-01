@@ -18,7 +18,7 @@ const DropDowns = () => {
     <div className="drop-downs">
       {
         items.length > 0 && items.map(item => (
-          <DropDown key={item.id} title={item.title} content={item.content}/>
+          <DropDown key={item.id} title={item.title} content={item.content} />
         ))
       }
     </div>

@@ -30,10 +30,10 @@ const Hero = () => {
           </a>
         </div>
         <div className="more-container">
-          <div className="hero-more">
+          <a className="hero-more" href='#features'>
             <button className="more-btn shadow"></button>
             <span className="text-S">Discover more</span>
-          </div>
+          </a>
         </div>
         </div>
       <div className="hero-images">

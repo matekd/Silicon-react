@@ -1,28 +1,27 @@
 import React from 'react'
 import icon from '../assets/images/icon.svg'
+import { Link, NavLink } from 'react-router-dom'
+import DarkmodeSwitch from './DarkmodeSwitch'
+import MobileNav from './MobileNav'
 
 const Nav = () => {
+  
   return (
-    <nav>
-      <a id="nav-logo" href="index.html"></a>
-      <a id="nav-features" className="nav-text" href="#features">Features</a>
+    <nav className='border'>
+      <Link id="nav-logo" to={"/"}></Link>
+
+      <a id="nav-features" className="nav-text nav-link" href="#features">Features</a>
+
+      <NavLink className="nav-text nav-link" to={"/contact"}>Contact</NavLink>
+
+      <DarkmodeSwitch />
       
-      <div id="darkmode-switch">
-        <span className="nav-text">Dark mode</span>
-        <label className="toggle-parent">
-          <input type="checkbox" />
-          <span className="toggle"></span>
-        </label>
-      </div>
-      
-      <a id="sign-in" href="#" className="btn-primary">
+      <a href="#" className="btn-primary sign-in nav-link">
         <img className="sign-in-icon" src={icon} alt="" />
         <span>Sign in / up</span>
       </a>
 
-      <button className="burger">
-        <i className="fa-solid fa-bars"></i>
-      </button>
+      <MobileNav />
     </nav>
   )
 }

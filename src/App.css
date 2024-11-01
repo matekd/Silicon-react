@@ -33,6 +33,7 @@ body {
 }
 html {
   color-scheme: light;
+  scroll-behavior: smooth;
 }
 .dark {
   color-scheme: dark;
@@ -45,6 +46,9 @@ html {
   --clr-300: rgba(255, 255, 255, 0.15);
   .bg-gray, .testimonial, .panel {
     background-color: rgba(255, 255, 255, 0.04);
+  }
+  .bg-half-gray {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 40%, #0b0f19 40%);
   }
   .more-btn {
     background-color: rgba(255, 255, 255, 0.05);
@@ -182,8 +186,14 @@ a {
     2px 2px 6px rgba(0, 0, 0, 0.2),
     -.5px -.5px 1px rgba(0, 0, 0, 0.2);
 }
-.bg-half-grad {
+.bg-half-gray {
   background: linear-gradient(180deg, var(--clr-100) 40%, var(--clr-white) 40%);
+}
+.rotate90 {
+  rotate: 90deg;
+}
+.border {
+  border: red solid 2px;
 }
 
 /* ----- Content ----- */
@@ -206,7 +216,7 @@ nav {
   height: 44px;
   width: 122px;
 }
-#nav-features {
+.nav-link {
   display: none;
   width: fit-content;
   &:hover {
@@ -259,8 +269,8 @@ nav {
     transition: all 200ms;
   }
 }
-#sign-in {
-  display: none;
+.sign-in {
+  /* display: none; */
   img {
     margin-right: .5rem;
     border-radius: 50%;
@@ -274,9 +284,17 @@ nav {
   border: none;
   padding: 1rem;
   cursor: pointer;
+  transition: rotate 200ms;
   i {
     font-size: 1.25rem;
   }
+}
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  grid-column: 1 / 4;
 }
 
 .headline {
@@ -639,6 +657,7 @@ ul {
   place-items: center;
   padding-block: 4rem;
   margin-inline: .5rem;
+  border-radius: 8px;
 }
 .subscribe-text {
   display: flex;
@@ -696,7 +715,7 @@ footer {
     display: block;
   }
   nav {
-    gap: 4rem;
+    column-gap: 4rem;
     padding-block: 1rem;
   }
   .hero {
@@ -795,10 +814,10 @@ footer {
     max-width: 1320px;
   }
   nav {
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto auto 1fr auto auto;
     gap: 1.5rem;
   }
-  #nav-features, #sign-in {
+  .nav-link, .sign-in {
     display: flex;
   }
   .burger {

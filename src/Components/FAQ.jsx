@@ -2,6 +2,7 @@ import React from 'react'
 import call from '../assets/images/call.svg'
 import sms from '../assets/images/sms.svg'
 import DropDowns from './DropDowns'
+import { NavLink } from 'react-router-dom'
 
 const FAQ = () => {
   return (
@@ -14,12 +15,12 @@ const FAQ = () => {
         <div className="call">
           <img src={call} alt="" />
           <p className="text-S">Still have  questions?</p>
-          <a href="#" className="contact-call">Contact us -{'>'}</a>
+          <NavLink to={"/contact"} className="contact-call">Contact us -{'>'}</NavLink>
         </div>
         <div className="sms">
           <img src={sms} alt="" />
           <p className="text-S">Don't like phone calls?</p>
-          <a href="#" className="contact-sms">Contact us -{'>'}</a>
+          <NavLink to={"/contact"} className="contact-sms">Contact us -{'>'}</NavLink>
         </div>
       </div>
       <DropDowns />

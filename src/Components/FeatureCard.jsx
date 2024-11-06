@@ -1,8 +1,8 @@
 import React from 'react'
 
-const IconCard = (props) => {
+const FeatureCard = (props) => {
   return (
-    <div className="icon-card">
+    <div className="feature-card">
       <div className="icon">
         <img src={props.imgUrl} alt="" />
       </div>
@@ -14,4 +14,4 @@ const IconCard = (props) => {
   )
 }
 
-export default IconCard
+export default FeatureCard

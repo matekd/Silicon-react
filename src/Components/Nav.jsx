@@ -7,7 +7,7 @@ import MobileNav from './MobileNav'
 const Nav = () => {
   
   return (
-    <nav className='border'>
+    <nav>
       <Link id="nav-logo" to={"/"}></Link>
 
       <a id="nav-features" className="nav-text nav-link" href="#features">Features</a>

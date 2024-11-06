@@ -22,11 +22,11 @@ const FeatureDesktop = () => {
       <div>
         <h2 className="h2">Receive payment from international bank details</h2>
         <div className="cards">
-          <div className="icon-card">
+          <div className="feature-card">
             <div className="icon"><img src={payments} alt="" /></div>
             <p className="text-M">Manage your payments online. Mollis congue egestas egestas fermentum fames.</p>
           </div>
-          <div className="icon-card">
+          <div className="feature-card">
             <div className="icon"><img src={wallet} alt="" /></div>
             <p className="text-M">A elementur and imperdiet enim, pretium etiam facilisi aenean quam mauris.</p>
           </div>

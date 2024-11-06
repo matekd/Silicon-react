@@ -14,6 +14,7 @@
   --clr-900: #0B0F19;
   --clr-sys-warning: #FFBA08;
   --clr-sys-success: #22C55E;
+  --clr-sys-error: #EF4444;
   --container-padding: .5rem;
   /* --background-gradient: linear-gradient(170deg, rgba(99, 102, 241, .1) 0%, rgba(217, 70, 239, .05) 42%, rgba(241, 244, 253, .07) 83%); */
   --background-gradient: linear-gradient(170deg, rgba(241, 244, 253, .07), rgba(217, 70, 239, .07));
@@ -35,7 +36,7 @@ html {
   color-scheme: light;
   scroll-behavior: smooth;
 }
-.dark {
+.dark, html[data-theme='dark'] {
   color-scheme: dark;
   body {
     background-color: #0B0F19;
@@ -43,14 +44,14 @@ html {
   --clr-600: white;
   --clr-700: white;
   --clr-900: white;
-  --clr-300: rgba(255, 255, 255, 0.15);
+  --clr-300: hsla(0, 0%, 100%, 0.15);
   .bg-gray, .testimonial, .panel {
     background-color: rgba(255, 255, 255, 0.04);
   }
   .bg-half-gray {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 40%, #0b0f19 40%);
   }
-  .more-btn {
+  .more-btn, select {
     background-color: rgba(255, 255, 255, 0.05);
     background-image: url("./assets/images/chevron-white.svg");
   }
@@ -60,7 +61,7 @@ html {
   #nav-logo {
     background-image: url("./assets/images/logo-darkmode.svg");
   }
-  .nav-text {
+  .nav-text, .bold, .burger i {
     color: white;
   }
   .mkt-title, .mkt-text {
@@ -71,6 +72,17 @@ html {
   }
   .white-apple {
     display: none;
+  }
+  input, select, option {
+    background-color: #1e212a;
+  }
+  .appointmentForm {
+    background-color: #1a1d26;
+  }
+  .appointmentForm, .input-group {
+    input, select {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
   }
 }
 
@@ -103,6 +115,11 @@ a {
 .text-S {
   color: var(--clr-700);
   font-size: 0.875rem;
+  font-weight: 400;
+}
+.text-XS {
+  color: var(--clr-700);
+  font-size: 0.75rem;
   font-weight: 400;
 }
 .nav-text {
@@ -144,7 +161,24 @@ a {
   font-size: 1rem;
   font-weight: 600;
 }
-
+.bold {
+  font-weight: 700;
+}
+input, select {
+  background-color: var(--clr-white);
+  &:focus {
+    outline: none;
+  }
+}
+select {
+  appearance: none;
+  background-image: url("./assets/images/chevron.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+}
+.primary {
+  color: var(--clr-primary);
+}
 .btn-primary {
   background-color: var(--clr-primary);
   color: var(--clr-white);
@@ -192,8 +226,52 @@ a {
 .rotate90 {
   rotate: 90deg;
 }
-.border {
-  border: red solid 2px;
+i {
+  color: var(--clr-primary);
+}
+.icon {
+  min-width: 60px;
+  max-width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(99, 102, 241, 0.1);
+  border-radius: .5rem;
+}
+.status {
+  padding: 1px 8px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.18);
+}
+.success {
+  input, select {
+    outline: 1px solid var(--clr-sys-success);
+  }
+  input {
+    background-image: url("./assets/images/success.svg");
+  }
+  span {
+    color: var(--clr-sys-success);
+    background-color: rgba(34, 197, 94, 0.12)
+  }
+}
+.error {
+  input, select {
+    outline: 1px solid var(--clr-sys-error);
+  }
+  input {
+    background-image: url("./assets/images/error.svg");
+  }
+  span {
+    color: var(--clr-sys-error);
+    background-color: rgba(239, 68, 68, 0.12)
+  }
+}
+.error input, .success input {
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  background-size: 24px;
 }
 
 /* ----- Content ----- */
@@ -286,6 +364,7 @@ nav {
   cursor: pointer;
   transition: rotate 200ms;
   i {
+    color: var(--clr-800);
     font-size: 1.25rem;
   }
 }
@@ -426,18 +505,9 @@ nav {
   justify-content: center;
   padding-bottom: 3rem;
 }
-.icon-card {
+.feature-card {
   display: flex;
   gap: 1.5rem;
-  .icon {
-    min-width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(99, 102, 241, 0.1);
-    border-radius: .5rem;
-  }
   h2 {
     margin-bottom: .5rem;
   }
@@ -506,7 +576,7 @@ nav {
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
-  .icon-card {
+  .feature-card {
     display: flex;
     gap: 1rem;
     flex-direction: column;
@@ -591,10 +661,10 @@ ul {
     "contact";
   margin-top: 3rem;
   
-  .contact-call {
+  .faq-contact-call {
     color: var(--clr-primary);
   }
-  .contact-sms {
+  .faq-contact-sms {
     color: var(--clr-sys-success);
   }
 }
@@ -605,7 +675,7 @@ ul {
     padding-block: 2.5rem;
   }
 }
-.contact {
+.faq-contact {
   display: none;
   gap: 1.5rem;
   grid-area: contact;
@@ -696,6 +766,95 @@ footer {
   padding-block: 1rem;
 }
 
+.contact {
+  color: red;
+  display:  grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5rem;
+  column-gap: 1rem;
+  padding-bottom: 2rem;
+  h1 {
+    padding-bottom: 4rem;
+  }
+}
+.contact-card {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 3rem;
+  max-width: 390px;
+  .icon{
+    border-radius: 50%;
+    background-color: var(--clr-white);
+    font-size: 1.25rem;
+  }
+}
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  i {
+    margin-left: .5rem;
+  }
+}
+.appointmentForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 4rem;
+  background-color: var(--clr-white);
+  border-radius: 8px;
+  input, select {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--clr-300);
+    margin-top: .5rem;
+    font-size: inherit;
+  }
+  h2 {
+    padding-bottom: 1.5rem;
+  }
+  button {
+    margin-top: 5rem;
+    padding: 1rem;
+  }
+  
+}
+
+.map {
+  border-radius: 8px;
+}
+.locations {
+  padding-left: 4rem;
+  /* not mobile */
+}
+.location {
+  padding: 2rem;
+  h4 {
+    padding-bottom: 1.5rem;
+  }
+}
+.location-body {
+  display: flex;
+  flex-direction: row;
+  gap: .75rem;
+  i {
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    align-items: center;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  span {
+    color: var(--clr-800);
+  }
+}
+
 /* ----- Media queries ----- */
 
 @media (min-width: 768px) {
@@ -776,7 +935,7 @@ footer {
     opacity: 80%;
   }
 
-  .contact {
+  .faq-contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-block: 2rem;
@@ -904,7 +1063,7 @@ footer {
   .faq-text {
     text-align: left;
   }
-  .contact {
+  .faq-contact {
     display: flex;
   }
   .call, .sms {

@@ -11,16 +11,16 @@ const FAQ = () => {
         <h2 className="h2">Any questions? Check out the FAQs</h2>
         <p className="text-L">Still have unanswered questions and need to get in touch?</p>
       </div>
-      <div className="contact">
+      <div className="faq-contact">
         <div className="call">
           <img src={call} alt="" />
           <p className="text-S">Still have  questions?</p>
-          <NavLink to={"/contact"} className="contact-call">Contact us -{'>'}</NavLink>
+          <NavLink to={"/contact"} className="faq-contact-call text-S bold">Contact us -{'>'}</NavLink>
         </div>
         <div className="sms">
           <img src={sms} alt="" />
           <p className="text-S">Don't like phone calls?</p>
-          <NavLink to={"/contact"} className="contact-sms">Contact us -{'>'}</NavLink>
+          <NavLink to={"/contact"} className="faq-contact-sms text-S bold">Contact us -{'>'}</NavLink>
         </div>
       </div>
       <DropDowns />

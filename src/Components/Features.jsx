@@ -1,5 +1,5 @@
 import React from 'react'
-import IconCard from './IconCard'
+import FeatureCard from './FeatureCard'
 import featureImg from '../assets/images/phone-card.svg'
 import icon1 from '../assets/images/payments.svg'
 import icon2 from '../assets/images/security.svg'
@@ -21,12 +21,12 @@ const Features = () => {
           lacus.</p>
       </div>
       <div className="cards">
-        <IconCard imgUrl={icon1} heading="Easy Payments" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
-        <IconCard imgUrl={icon2} heading="Data Security" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
-        <IconCard imgUrl={icon3} heading="Cost Statistics" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
-        <IconCard imgUrl={icon4} heading="Support 24/7" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
-        <IconCard imgUrl={icon5} heading="Regular Cashback" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
-        <IconCard imgUrl={icon6} heading="Top Standards" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
+        <FeatureCard imgUrl={icon1} heading="Easy Payments" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
+        <FeatureCard imgUrl={icon2} heading="Data Security" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
+        <FeatureCard imgUrl={icon3} heading="Cost Statistics" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
+        <FeatureCard imgUrl={icon4} heading="Support 24/7" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
+        <FeatureCard imgUrl={icon5} heading="Regular Cashback" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
+        <FeatureCard imgUrl={icon6} heading="Top Standards" text="Id mollis consectetur congue egestas egestas suspendisse blandit justo."/>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import icon from '../assets/images/icon.svg'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const MobileNav = () => {
 
@@ -11,8 +11,7 @@ const MobileNav = () => {
       <button className={`burger ${showMenu ? "rotate90" : ""}`} onClick={() => setShowMenu(!showMenu)}>
         <i className="fa-solid fa-bars"></i>
       </button>
-      {showMenu && <div className="mobile-nav">
-
+      {showMenu && <div className="mobile-nav no-desktop">
         <Link to={"/"} className="nav-text" href="#features">Features</Link>
 
         <NavLink className="nav-text" to={"/contact"}>Contact</NavLink>

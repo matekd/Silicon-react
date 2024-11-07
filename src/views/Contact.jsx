@@ -34,7 +34,14 @@ const Contact = () => {
     <header>
       <div className="bg-half-gray">
         <Nav />
-        <div>Nav history</div>
+        <div className='breadCrumb'>
+          <Link to={"/"} className="text-S bold">
+            <i className="fa-solid fa-house"></i>Homepage
+          </Link>
+          <Link to={"/contact"} className="text-S primary bold">
+            <i className="fa-solid fa-angles-right"></i>Contact
+          </Link>
+        </div>
         <section className='contact'>
           <div>
             <h1 className='h1'>Contact us</h1>
@@ -74,6 +81,12 @@ const Contact = () => {
                   phoneNumber={item.phoneNumber} 
                   openingHours={item.openingHours} />
             ))}
+            <div className="socials">
+              <div className="icon"><i className="fa-brands fa-square-facebook"></i></div>
+              <div className="icon"><i className="fa-brands fa-twitter"></i></div>
+              <div className="icon"><i className="fa-brands fa-square-instagram"></i></div>
+              <div className="icon"><i className="fa-brands fa-youtube"></i></div>
+            </div>
           </div>
         </section>
         <Footer />

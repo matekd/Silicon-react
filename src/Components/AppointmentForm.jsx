@@ -3,65 +3,87 @@ import React, { useState } from 'react'
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({fullName: '', email: '', specialist: ''})
   const [status, setStatus] = useState({})
+  const [specialists, setSpecialists] = useState([
+    "Doctor",
+    "Necromancer"
+  ])
+
+  // input-/select- element
+  const validateField = (el) => {
+    const name = el.name
+    const value = el.value
+    let newStatus = ''
+    let isValid = false
+
+    if (value.trim() === '') {
+      newStatus = "Field can't be empty"
+
+    } else if (name === "fullName" && !/^[A-Öa-ö\s\-]{2,}$/.test(value)) {
+      newStatus = "Must be at least 2 characters long, no numbers"
+
+    } else if (name === "email" && !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)) {
+      newStatus = "Must be a valid email (eg. example@domain.com)"
+
+    } else if (name === "specialist" && !specialists.includes(value)) {
+      newStatus = "Specialist must be on the list"
+    }
+
+    if (newStatus === '') {
+      newStatus = 'Looks good!'
+      isValid = true
+      el.parentElement.classList.remove('error')
+      el.parentElement.classList.add('success')
+    } else {
+      el.parentElement.classList.add('error')
+      el.parentElement.classList.remove('success')
+    }
+
+    setStatus(prevStatus => ({...prevStatus, [name]: newStatus}))
+    return isValid
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
-
-    if (value.trim() === '') {
-      setStatus(prevStatus => ({...prevStatus, [name]: 'Field is empty'}))
-      e.target.parentElement.classList.add('error')
-      e.target.parentElement.classList.remove('success')
-    } else {
-      setStatus(prevStatus => ({...prevStatus, [name]: 'Looks good!'}))
-      e.target.parentElement.classList.remove('error')
-      e.target.parentElement.classList.add('success')
-    }
-    switch (name) {
-      case ('fullName'):
-        console.log('fullName')
-        break
-      case ('email'):
-        console.log('email')
-        break
-      case ('specialist'):
-        console.log('specialist')
-        break
-    }
     
+    validateField(e.target)
+
     setFormData({...formData, [name]: value})
   }
-  // handle, visa success
-  // submit, visa error, alerta user
-  // subscribe också
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // Object.values(formData).some((k) => {
-    //   console.log(k)
-    // })
-    for (const input in formData) {
-      // console.log(input[])
-    }
-    // const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(formData)
-    // })
+    let isValid = true
+    let inputs = [
+      {fullName: ''},
+      {email: ''},
+      {specialist: ''}
+    ]
+    inputs.fullName = e.target.querySelector("input[name='fullName']")
+    inputs.email = e.target.querySelector("input[name='email']")
+    inputs.specialist = e.target.querySelector("select[name='specialist']")
 
-    // if (res.ok) {
-    //   const data = await res.text()
-    //   console.log(res.status)
-    //   console.log(data)
-    // } else {
-    //   const data = await res.text()
-    //   console.log(res.status)
-    //   console.log(data)
-    // }
+    if (!validateField(inputs.fullName)) isValid = false
+    if (!validateField(inputs.email)) isValid = false
+    if (!validateField(inputs.specialist)) isValid = false
+
+    if (!isValid) return
+
+    const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+
+    if (res.ok) {
+      alert("Successfully booked an appointment!")
+    } else {
+      alert("Booking failed")
+    }
   }
   return (
-    <form id='appointmentForm' className='appointmentForm shadow' onSubmit={handleSubmit}>
+    <form id='appointmentForm' className='appointmentForm shadow' onSubmit={handleSubmit} noValidate>
       <h2 className="h2">Get Online Consultation</h2>
 
       <label className='nav-text'>Full name<br />
@@ -79,8 +101,9 @@ const AppointmentForm = () => {
       <label className='nav-text'>Specialist<br />
         <select name="specialist" value={formData.specialist} onChange={handleChange} required>
           <option disabled hidden value=''></option>
-          <option value="Doctor">Doctor</option>
-          <option value="Necromancer">Necromancer</option>
+          {specialists.map((specialist, index) => (
+            <option key={index} value={specialist}>{specialist}</option>
+          ))}
         </select>
         {status.specialist && 
           <span className={'text-XS status'}>{status.specialist && status.specialist}</span>}

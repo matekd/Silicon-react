@@ -31,7 +31,7 @@ const [isDarkMode, setIsDarkMode] = useState(false)
     <div id="darkmode-switch">
       <span className="nav-text">Dark mode</span>
       <label className="toggle-parent" onChange={toggleDarkmode}>
-        <input type="checkbox" checked={isDarkMode} />
+        <input type="checkbox" checked={isDarkMode} readOnly />
         <span className="toggle"></span>
       </label>
     </div>

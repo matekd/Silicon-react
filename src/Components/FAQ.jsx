@@ -24,7 +24,7 @@ const FAQ = () => {
         </div>
       </div>
       <DropDowns />
-      <button className="btn-primary btn-contact">Contact us now</button>
+      <NavLink to={"/contact"} className="btn-primary btn-contact">Contact us now</NavLink>
     </section>
   )
 }

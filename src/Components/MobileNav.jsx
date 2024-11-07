@@ -13,14 +13,14 @@ const MobileNav = () => {
       </button>
       {showMenu && <div className="mobile-nav">
 
-        <a className="nav-text" href="#features">Features</a>
+        <Link to={"/"} className="nav-text" href="#features">Features</Link>
 
         <NavLink className="nav-text" to={"/contact"}>Contact</NavLink>
         
-        <a href="#" className="btn-primary sign-in">
+        <Link to={"/"} className="btn-primary sign-in">
           <img className="sign-in-icon" src={icon} alt="" />
           <span>Sign in / up</span>
-        </a>
+        </Link>
       </div>}
     </>
   )

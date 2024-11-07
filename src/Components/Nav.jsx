@@ -10,16 +10,16 @@ const Nav = () => {
     <nav>
       <Link id="nav-logo" to={"/"}></Link>
 
-      <a id="nav-features" className="nav-text nav-link" href="#features">Features</a>
+      <Link id="nav-features" className="nav-text nav-link" to="/">Features</Link>
 
       <NavLink className="nav-text nav-link" to={"/contact"}>Contact</NavLink>
 
       <DarkmodeSwitch />
       
-      <a href="#" className="btn-primary sign-in nav-link">
+      <Link to={"/"} className="btn-primary sign-in nav-link">
         <img className="sign-in-icon" src={icon} alt="" />
         <span>Sign in / up</span>
-      </a>
+      </Link>
 
       <MobileNav />
     </nav>

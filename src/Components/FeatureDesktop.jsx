@@ -3,6 +3,7 @@ import forecast from '../assets/images/forecast.svg'
 import contacts from '../assets/images/contacts.svg'
 import payments from '../assets//images/payments.svg'
 import wallet from '../assets/images/wallet.svg'
+import { Link } from 'react-router-dom'
 
 const FeatureDesktop = () => {
   return (
@@ -15,7 +16,7 @@ const FeatureDesktop = () => {
           <li className="text-M">Manage payments and transactions online</li>
         </ul>
         {/* <a className="btn-primary" href="#">Learn more&nbsp;<i className="fa-solid fa-arrow-right"></i></a> */}
-        <a className="btn-primary" href="#">Learn more -&gt;</a>
+        <Link className="btn-primary" to={"/"}>Learn more -&gt;</Link>
       </div>
       <img src={forecast} alt="forecast" />
       <img src={contacts} alt="contacts" />
@@ -31,7 +32,7 @@ const FeatureDesktop = () => {
             <p className="text-M">A elementur and imperdiet enim, pretium etiam facilisi aenean quam mauris.</p>
           </div>
         </div>
-        <a className="btn-primary" href="#">Learn more -&gt;</a>
+        <Link className="btn-primary" to={"/"}>Learn more -&gt;</Link>
       </div>
     </section>
   )

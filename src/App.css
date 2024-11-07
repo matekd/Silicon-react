@@ -61,7 +61,7 @@ html {
   #nav-logo {
     background-image: url("./assets/images/logo-darkmode.svg");
   }
-  .nav-text, .bold, .burger i {
+  .nav-text, .burger, .days {
     color: white;
   }
   .mkt-title, .mkt-text {
@@ -83,6 +83,9 @@ html {
     input, select {
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
+  }
+  .contact-card .icon {
+    background-color: rgba(255, 255, 255, 0.05);
   }
 }
 

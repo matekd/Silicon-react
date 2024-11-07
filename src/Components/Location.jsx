@@ -14,8 +14,8 @@ const Location = ({ name, address, phoneNumber, openingHours }) => {
           <div>
             <p className='text-M'>{address}</p>
             <p className='text-M'>{phoneNumber}</p>
-            <p className='text-M'><span className="bold">Mon - Fri: </span>{openingHours.workDays}<br />
-              <span className="bold">Sat - Sun: </span>{openingHours.weekEnd}</p>
+            <p className='text-M'><span className="bold days">Mon - Fri: </span>{openingHours.workDays}<br />
+              <span className="bold days">Sat - Sun: </span>{openingHours.weekEnd}</p>
           </div>
         </div>
     </div>

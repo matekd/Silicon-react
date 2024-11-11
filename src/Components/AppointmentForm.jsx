@@ -82,6 +82,7 @@ const AppointmentForm = () => {
       alert("Booking failed")
     }
   }
+  
   return (
     <form id='appointmentForm' className='appointmentForm shadow' onSubmit={handleSubmit} noValidate>
       <h2 className="h2">Get Online Consultation</h2>

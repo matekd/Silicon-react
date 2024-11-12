@@ -82,10 +82,10 @@ const Contact = () => {
                   openingHours={item.openingHours} />
             ))}
             <div className="socials">
-              <div className="icon"><i className="fa-brands fa-square-facebook"></i></div>
-              <div className="icon"><i className="fa-brands fa-twitter"></i></div>
-              <div className="icon"><i className="fa-brands fa-square-instagram"></i></div>
-              <div className="icon"><i className="fa-brands fa-youtube"></i></div>
+              <a className="icon" href='#' target='_blank'><i className="fa-brands fa-square-facebook"></i></a>
+              <a className="icon" href='#' target='_blank'><i className="fa-brands fa-twitter"></i></a>
+              <a className="icon" href='#' target='_blank'><i className="fa-brands fa-square-instagram"></i></a>
+              <a className="icon" href='#' target='_blank'><i className="fa-brands fa-youtube"></i></a>
             </div>
           </div>
         </section>

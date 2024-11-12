@@ -49,7 +49,7 @@ html {
     background-color: rgba(255, 255, 255, 0.04);
   }
   .bg-half-gray {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 40%, #0b0f19 40%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 45%, #0b0f19 45%);
   }
   .more-btn, select {
     background-color: rgba(255, 255, 255, 0.05);
@@ -227,7 +227,7 @@ select {
     -.5px -.5px 1px rgba(0, 0, 0, 0.2);
 }
 .bg-half-gray {
-  background: linear-gradient(180deg, var(--clr-100) 40%, var(--clr-white) 40%);
+  background: linear-gradient(180deg, var(--clr-100) 45%, var(--clr-white) 45%);
 }
 .rotate90 {
   rotate: 90deg;
@@ -291,7 +291,7 @@ nav {
   align-items: center;
   justify-content: center;
   grid-template-columns: 1fr auto auto;
-  gap: 1.5rem;
+  gap: 1rem;
   padding-block: .5rem;
 }
 #nav-logo {
@@ -302,13 +302,13 @@ nav {
 }
 .nav-link {
   display: none;
-  width: fit-content;
   &:hover {
     color: var(--clr-primary);
   }
 }
 #darkmode-switch {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 .toggle-parent {
@@ -320,7 +320,7 @@ nav {
   cursor: pointer;
   box-sizing: content-box;
   height: var(--_h);
-  width: var(--_w);
+  min-width: var(--_w);
   padding: var(--_p);
 
   input[type="checkbox"] {
@@ -354,7 +354,6 @@ nav {
   }
 }
 .sign-in {
-  /* display: none; */
   img {
     margin-right: .5rem;
     border-radius: 50%;
@@ -825,7 +824,8 @@ footer {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
-  padding: 4rem;
+  padding-block: 4rem;
+  padding-inline: 1rem;
   background-color: var(--clr-white);
   border-radius: 8px;
   input, select {
@@ -844,7 +844,6 @@ footer {
     padding: 1rem;
   }
 }
-
 .map {
   border-radius: 8px;
   width: 100%;
@@ -887,6 +886,11 @@ footer {
     min-width: 44px;
     height: 44px;
     border-radius: 6px;
+  }
+  .icon:hover, .icon:focus {
+    border: var(--clr-primary) 2px solid;
+    outline: none;
+    text-decoration: none;
   }
 }
 
@@ -980,6 +984,10 @@ footer {
   }
   .btn-contact {
     display: none;
+  }
+
+  .appointmentForm {
+    padding: 4rem;
   }
 
   .subscribe {
